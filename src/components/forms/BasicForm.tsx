@@ -1,94 +1,94 @@
 import { Label, TextInput, Select, Button } from "flowbite-react"
 
-
 const BasicForm = () => {
   return (
     <div className="rounded-xl dark:shadow-dark-md shadow-md bg-white dark:bg-darkgray p-6 relative w-full break-words">
-    <h5 className="card-title">Form</h5>
-    <div className="mt-6">
-      <div className="grid grid-cols-12 gap-30">
-        <div className="lg:col-span-6 col-span-12">
-          <div className="flex  flex-col gap-4">
-            <div>
-              <div className="mb-2 block">
-                <Label htmlFor="name" value="Your Name" />
+      <h5 className="card-title">Form Inventaris Barang</h5>
+      <div className="mt-6">
+        <div className="grid grid-cols-12 gap-6">
+          <div className="col-span-12 lg:col-span-6 flex flex-col gap-4">
+            {[
+              { id: "kodeBarang", label: "Kode Barang" },
+              { id: "jenisBarang", label: "Jenis/Nama Barang" },
+              { id: "noRegister", label: "No Register" },
+              { id: "merkType", label: "Merk/Type" },
+              { id: "ukuran", label: "Ukuran/CC" },
+              { id: "bahan", label: "Bahan" },
+              { id: "tahunPembelian", label: "Tahun Pembelian" },
+              { id: "pabrik", label: "Pabrik" },
+              { id: "noRangka", label: "No Rangka" },
+            ].map(({ id, label }) => (
+              <div key={id}>
+                <Label htmlFor={id} value={label} className="mb-2 block" />
+                <TextInput id={id} type="text" required className="form-control form-rounded-xl" />
               </div>
-              <TextInput
-                id="name"
-                type="text"
-                placeholder="Your Name"
-                required
-                className="form-control form-rounded-xl"
-              />
-            </div>
-            <div>
-              <div className="mb-2 block">
-                <Label htmlFor="email1" value="Your email" />
-              </div>
-              <TextInput
-                id="email1"
-                type="email"
-                placeholder="name@matdash.com"
-                required
-                className="form-control form-rounded-xl"
-              />
-            </div>
-            <div>
-              <div className="mb-2 block">
-                <Label htmlFor="password1" value="Your password" />
-              </div>
-              <TextInput
-                id="password1"
-                type="password"
-                required
-                className="form-control form-rounded-xl"
-              />
-            </div>
-          
+            ))}
           </div>
-        </div>
-        <div className="lg:col-span-6 col-span-12">
-          <div className="flex  flex-col gap-4">
-            <div>
-              <div className="mb-2 block">
-                <Label htmlFor="countries1" value="Country" />
+          <div className="col-span-12 lg:col-span-6 flex flex-col gap-4">
+            {[
+              { id: "noMesin", label: "No Mesin" },
+              { id: "noPolisi", label: "No Polisi" },
+              { id: "noBpkb", label: "No BPKB" },
+            ].map(({ id, label }) => (
+              <div key={id}>
+                <Label htmlFor={id} value={label} className="mb-2 block" />
+                <TextInput id={id} type="text" required className="form-control form-rounded-xl" />
               </div>
-              <Select id="countries1" required className="select-rounded">
-                <option>India</option>
-                <option>Canada</option>
-                <option>France</option>
-                <option>Germany</option>
+            ))}
+
+            {/* Asal Usul (Select) */}
+            <div>
+              <Label htmlFor="asalUsul" value="Asal Usul" className="mb-2 block" />
+              <Select id="asalUsul" required className="select-rounded">
+                <option value="">Pilih Asal Usul</option>
+                <option>Pembelian</option>
+                <option>Hibah</option>
+                <option>Pelaksanaan Perjanjian/Kontrak</option>
+                <option>Ketentuan Peraturan</option>
+                <option>Putusan Pengadilan</option>
+                <option>Hasil Divestasi Penyertaan Modal</option>
               </Select>
             </div>
+
+            {/* Harga */}
             <div>
-              <div className="mb-2 block">
-                <Label htmlFor="countries2" value="State" />
-              </div>
-              <Select id="countries2" required className="select-rounded">
-                <option>Delhi</option>
-                <option>Gujarat</option>
-                <option>Mumbai</option>
-                <option>Chennai</option>
+              <Label htmlFor="harga" value="Harga" className="mb-2 block" />
+              <TextInput id="harga" type="text" required className="form-control form-rounded-xl" />
+            </div>
+
+            {/* Kondisi (Select) */}
+            <div>
+              <Label htmlFor="kondisi" value="Kondisi" className="mb-2 block" />
+              <Select id="kondisi" required className="select-rounded">
+                <option value="">Pilih Kondisi</option>
+                <option>Baik</option>
+                <option>Kurang Baik</option>
+                <option>Rusak Berat</option>
+                <option>Hilang</option>
+                <option>Tidak Ditemukan</option>
+                <option>Lainnya</option>
               </Select>
             </div>
-            <div>
-              <div className="mb-2 block">
-                <Label htmlFor="countries3" value="City" />
+
+            {/* Nama & Jabatan Pemegang */}
+            {[
+              { id: "namaPemegang", label: "Nama Pemegang" },
+              { id: "jabatanPemegang", label: "Jabatan Pemegang" },
+            ].map(({ id, label }) => (
+              <div key={id}>
+                <Label htmlFor={id} value={label} className="mb-2 block" />
+                <TextInput id={id} type="text" required className="form-control form-rounded-xl" />
               </div>
-              <Select id="countries3" required className="select-rounded">
-                <option>Rajkot</option>
-                <option>Ahemedabad</option>
-              </Select>
-            </div>
+            ))}
           </div>
-        </div>
-        <div className="col-span-12 flex gap-3">
-          <Button color={'primary'}>Submit</Button>
-          <Button color={'error'}>Cancel</Button>
+
+          <div className="col-span-12 flex gap-3 mt-4">
+            <Button color={'primary'}>Submit</Button>
+            <Button color={'error'}>Cancel</Button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   )
 }
 

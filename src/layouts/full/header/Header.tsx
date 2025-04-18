@@ -1,13 +1,11 @@
-
-import { useState, useEffect } from "react";
-import {  Button, Navbar } from "flowbite-react";
-import { Icon } from "@iconify/react";
-import Profile from "./Profile";
-import Notification from "./notification";
-import { Drawer } from "flowbite-react";
-import MobileSidebar from "../sidebar/MobileSidebar";
-import { Link } from "react-router";
-
+import { useState, useEffect } from 'react';
+import { Button, Navbar } from 'flowbite-react';
+import { Icon } from '@iconify/react';
+import Profile from './Profile';
+import Notification from './notification';
+import { Drawer } from 'flowbite-react';
+import MobileSidebar from '../sidebar/MobileSidebar';
+import { Link } from 'react-router';
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -21,10 +19,10 @@ const Header = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -34,10 +32,9 @@ const Header = () => {
   return (
     <>
       <header
-        className={`sticky top-0 z-[5] ${isSticky
-            ? "bg-white dark:bg-dark fixed w-full"
-            : "bg-white"
-          }`}
+        className={`sticky top-0 z-[5] ${
+          isSticky ? 'bg-white dark:bg-dark fixed w-full' : 'bg-white'
+        }`}
       >
         <Navbar
           fluid
@@ -57,7 +54,13 @@ const Header = () => {
             </div>
 
             <div className="flex gap-4 items-center">
-              <Button as={Link} to="#" size={'sm'} color={"primary"} className="rounded-md py-1 px-3">
+              <Button
+                as={Link}
+                to="#"
+                size={'sm'}
+                color={'primary'}
+                className="rounded-md py-1 px-3"
+              >
                 Download Free
               </Button>
               <Profile />
