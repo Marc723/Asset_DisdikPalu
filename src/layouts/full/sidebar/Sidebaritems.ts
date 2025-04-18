@@ -23,10 +23,6 @@ import { uniqueId } from "lodash";
 
 const SidebarContent: MenuItem[] = [
   {
-    heading: "Dinas Pendidikan Kota Palu",
-    children: [],
-  },
-  {
     heading: "HOME",
     children: [
       {
