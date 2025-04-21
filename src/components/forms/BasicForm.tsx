@@ -77,7 +77,7 @@ const BasicForm = () => {
               </div>
               <Select id="countries3" required className="select-rounded">
                 <option>Rajkot</option>
-                <option>Ahemedabad</option>
+                <option>Ahemedabad</option> 
               </Select>
             </div>
           </div>
